@@ -20,7 +20,7 @@ const service = axios.create({
 // request请求拦截器
 service.interceptors.request.use(config => {
   removePending(config)
-  if (config.permission === true) { // config.permission = true 则携带token 等于false 则不携带token
+  if (config.permission === false) { // config.permission = false 则携带token  true 则不携带token
     config.headers['Authorization'] = 'Bearer ' + Cookies.get('token') // 让每个请求携带自定义token 根据实际情况自行修改
   }
   return config
