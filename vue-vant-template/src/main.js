@@ -16,8 +16,6 @@ Vue.config.productionTip = false
 
 let WeixinJSBridge = window.WeixinJSBridge
 
-console.log(WeixinJSBridge)
-
 // 禁止设置字体大小 避免局部错乱
 if (typeof WeixinJSBridge === 'object' && typeof WeixinJSBridge.invoke === 'function') {
   handleFontSize()
