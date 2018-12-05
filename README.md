@@ -1,5 +1,30 @@
-# vue-vant-template
-基于vant-ui 搭建的一款轻量级移动端vue脚手架
-技术栈 webpack 打包工具 vue-router路由 axios数据交互 vuex 状态管理 less样式拓展 eslint 语法规范
-配置了常见问题 移动端1px问题 各种终端适配问题
-辅助工具 vconsole 移动端调试工具
+# test
+
+> A Vue.js project
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
+```
+
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

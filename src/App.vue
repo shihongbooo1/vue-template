@@ -2,6 +2,11 @@
   <div id="app">
     <router-view/>
     <NavBar v-if="show_nav"></NavBar>
+    <div class="go_login" v-if="is_token">
+      <div @click="goLoginHeandel">
+        <span>请登录</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -15,7 +20,8 @@ export default {
   },
   data () {
     return {
-      show_nav: true
+      show_nav: true,
+      is_token: false
     }
   },
   mounted () {
@@ -27,11 +33,20 @@ export default {
     } else {
       this.show_nav = false
     }
+    // if (localStorage.getItem('token')) {
+    //   this.is_token = false
+    // } else {
+    //   this.is_token = true
+    // }
   },
   watch: {
     $route: 'fetchDate'
   },
   methods: {
+    goLoginHeandel () {
+      this.is_token = false
+      this.$router.push('/')
+    },
     IsInArray (arr, val) {
       let testStr = ',' + arr.join(',') + ','
       return testStr.indexOf(',' + val + ',') !== -1
@@ -57,6 +72,7 @@ export default {
 </script>
 
 <style lang="less">
+@import './assets/less/common.less';
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -67,6 +83,31 @@ export default {
   }
   img {
     -webkit-tap-highlight-color: transparent;
+  }
+  .go_login{
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.5);
+    div{
+      width: 50%;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      margin: auto;
+      background: #f56500;
+      color: #fff;
+      border-radius: 7px;
+      font-size: 35px;
+    }
   }
 }
 @media screen and(min-width: 414px) {

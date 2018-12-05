@@ -8,10 +8,11 @@ import store from './store'
 import 'vant/lib/index.css'
 import 'lib-flexible'
 import Vuex from 'vuex'
+import Cookies from 'js-cookie'
 
 Vue.use(Vant)
 Vue.use(Vuex)
-
+Cookies.set('token', '1111')
 Vue.config.productionTip = false
 
 let WeixinJSBridge = window.WeixinJSBridge

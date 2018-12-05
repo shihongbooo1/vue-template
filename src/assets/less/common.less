@@ -1,0 +1,98 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+html{
+  height: 100%;
+  width: 100%;
+}
+/*手机端实现真正的一像素边框*/
+.border-1px, .border-bottom-1px, .border-top-1px, .border-left-1px, .border-right-1px {
+  position: relative;
+}
+/*底边边框一像素*/
+.border-bottom-1px::after {
+    content:"";
+    position: absolute; 
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    transform-origin: 0 0;
+}
+
+/*上边边框一像素*/
+.border-top-1px::after {
+  content:"";
+   position: absolute; 
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 1px;
+   transform-origin: 0 0;
+}
+
+/*左边边框一像素*/
+.border-left-1px::after {
+ content:"";
+ position: absolute; 
+ left: 0;
+ top: 0;
+ width: 1px;
+ height: 100%;
+ transform-origin: 0 0;
+}
+
+/*右边边框1像素*/
+.border-right-1px::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute; 
+  right: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  transform-origin: 0 0;
+}
+
+/*边框一像素*/
+.border-1px(@color){
+  &::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 200%;
+    border: 1px solid @color;
+  }
+}
+
+/*设备像素比*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2.0), only screen and (min-resolution: 2dppx) {
+   .border-bottom-1px::after, .border-top-1px::after {
+      transform: scaleY(0.5);
+   }
+  .border-left-1px::after, .border-right-1px::after {
+    transform: scaleX(0.5);
+  } 
+  .border-1px::after {
+    transform: scale(0.5);
+    transform-origin: 0 0;
+  }
+}
+
+/*设备像素比*/
+@media only screen and (-webkit-min-device-pixel-ratio: 3.0), only screen and (min-resolution: 3dppx) {
+  .border-bottom-1px::after, .border-top-1px::after {
+    transform: scaleY(0.333);
+  } 
+  .border-left-1px::after, .border-right-1px::after {
+    transform: scaleX(0.333);
+  } 
+ .border-1px::after {
+    transform: scale(0.333);
+    transform-origin: 0 0;
+ }
+}
