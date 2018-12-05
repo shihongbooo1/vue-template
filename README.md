@@ -1,4 +1,4 @@
-# test
+# vue-vant-template
 
 > A Vue.js project
 
