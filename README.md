@@ -1,7 +1,6 @@
 # vue-vant-template
 
-> A Vue.js project
-
+> 使用vant-ui 搭建的一个vue 2 脚手架
 ## Build Setup
 
 ``` bash
